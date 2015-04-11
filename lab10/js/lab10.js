@@ -29,7 +29,7 @@ function Validate(){};
   $('.pay-error').hide();
   $('.city-error').addClass('error');
   $('.city-error').hide();
-  $('#buttons #info').remove();
+  $('# button, #info').remove();
  
 
   $('.button').bind('click', function(event){
@@ -106,7 +106,7 @@ function Validate(){};
     }
 
 
-    var  data=$('.emailadd').val();
+    var  data = $('.emailadd').val();
     
     if(validate.email(data)){
       // $('.emailadd').next().hide();
@@ -150,7 +150,7 @@ function Validate(){};
         localStorage.setItem('paymode', $(this).val());
       }
     });
-    if(count==0){
+    if(count===0){
       $('.pay-error').css({'margin-left':50}).show();
       $('.pay-error').text('Debe seleccionar un modo de Pago');
     }
@@ -160,7 +160,7 @@ function Validate(){};
 
 
     var count=$('select option:selected').val();
-    if(count=="0"){
+    if(count==="0"){
       $('.city-error').show();
       $('.city-error').text('¡Debe seleccionar una Ciudad!');
     }
@@ -175,6 +175,30 @@ function Validate(){};
     }
     event.preventDefault();
 
+  });
+
+
+$(document).on('click', '#info', function(){
+
+$('#openModal > div > #openModal > div > ul').remove();
+
+    $('#openModal > div').append(
+      '<h2>Este es tu pedido</h2>' +
+      '<ul>' +
+      '<li>Su nombre es: ' + localStorage.getItem('username') + '</li>' +
+      '<li>Su documento es: ' + localStorage.getItem('nid') + '</li>' +
+      '<li>Su email es: ' + localStorage.getItem('email') + '</li>' +     
+      '<li id="listMeals">Los alimentos que Solicita son: <ul></ul></li>' + 
+      '<li>El modo de pago es: ' + localStorage.getItem('paymode') + '</li>' +  
+      '<li>La ciudad donde habita es: ' + localStorage.getItem('city') + '</li></ul>'  
+
+    );
+    var meals =  JSON.parse(localStorage.getItem('meals'));
+ }
+
+    $.each(meals, function(key, value){
+          $('#listMeals > ul').append('<li>El producto ' + key + ' cuesta $' + value + ' M/Cte</li>');
+    });
   });
 
 });
