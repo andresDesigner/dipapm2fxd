@@ -1,14 +1,15 @@
 // Creación del Callback
-function operacionCallback(operacionCallback){
-	operacionCallback(
+function operacionCallBack()
+{
 
-                var n1= document.getelementbyid("1").value;
+                var n1= document.getElementById("n1").value;
 
-                var n2= document.getelementbyid("2").value;
+                var n2= document.getElementById("n2").value;
 
-                var resultado= (parseint(n1)+parseint(n2));
+                var resultado= (parseInt(n1)+parseInt(n2));
 
                
 
-                alert(resultado)        );
+                alert(resultado);       
+
 }
