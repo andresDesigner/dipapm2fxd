@@ -1,10 +1,14 @@
 // Creación del Callback
-function usarUnCallback(operacionesCallback){
+function operacionCallback(operacionCallback){
+	operacionCallback(
 
-	 
-var i = prompt("Teclea un numero entero");
-var j = prompt("Teclea otro numero entero");
- 
-document.write("La suma de las variables i + j da: " + (i + j));
-	operacionesCallback();
+                var n1= document.getelementbyid("1").value;
+
+                var n2= document.getelementbyid("2").value;
+
+                var resultado= (parseint(n1)+parseint(n2));
+
+               
+
+                alert(resultado)        );
 }
